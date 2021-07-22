@@ -10,7 +10,7 @@ def main():
     The first known case was identified in Wuhan, China, in December 2019.
     The disease has since spread worldwide, leading to an ongoing pandemic.
     """
-    txt
+    st.write(txt)
     st.markdown('Symptoms')
     st.markdown(("* Respiratory symptoms\n""* Fever\n""* Cough\n""* Shortness of breath\n"))
     st.markdown("Vaccines")
