@@ -1,8 +1,10 @@
 import streamlit as st
 from PIL import Image as imging
+from background import set_png_as_page_bg
 def main():
     img = imging.open("x.jpeg")
-    st.image(img)
+    st.image(img,width=1000)
+    # set_png_as_page_bg('covid2.png')
     st.title("Covid-19 DASHBOARD")
     txt = """
     This web application will serve to analyze, visualize, the spread of Covid-19.
