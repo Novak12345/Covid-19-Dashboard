@@ -10,8 +10,9 @@ from src.pages.utils.fetch_url import fetch_url
 from src.pages.utils.load_data import load_data
 from src.pages.utils.load_css import local_css
 from src.pages.utils.load_time_series import load_time_series
-
-
+from x import figcasesprov
+from plotly.offline import plot
+from background import set_png_as_page_bg
 @st.cache
 def plot_snapshot_numbers(df, colors, date, country=None):
     """
@@ -278,7 +279,6 @@ def plot_province(df, country):
         df.rename(columns={"Lat": "lat",
                            "Long_": "lon",
                            "Admin2": "City"}, inplace=True)
-        df["City"].fillna("Not Available", inplace=True)
         df.loc[:, 'Scaled Confirmed'] = df.loc[:, 'Confirmed'].apply(lambda s: np.log(s))
         df.loc[:, 'Scaled Confirmed'] = df.loc[:, 'Scaled Confirmed'].apply(
             lambda s: 0 if s == -np.inf else s)
@@ -291,16 +291,19 @@ def plot_province(df, country):
                                 size="Scaled Confirmed",
                                 color="Incident_Rate",
                                 color_continuous_scale=px.colors.sequential.Hot,
-                                hover_name="Combined_Key", hover_data=["City", "Province_State", "Confirmed",
+                                hover_name="Combined_Key", hover_data=["Confirmed",
                                                                        "Deaths", "Recovered"])
         fig.update_traces(opacity=0.7)
-        fig.update_layout(mapbox_style="dark", height=1000, width=1000, mapbox_accesstoken=token)
+        fig.update_layout(mapbox_style="light", height=1000, width=1000, mapbox_accesstoken=token)
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     return fig
 
 
 def main():
+    set_png_as_page_bg('about.png')
+    figcases=figcasesprov()
+    st.write(figcases)
     pio.templates.default = "plotly_dark"
     date = datetime.today()
     df = None
@@ -311,6 +314,7 @@ def main():
             date = date - timedelta(days=1)
             continue
         break
+    st.info("Data updated as on {}".format(date.date().strftime("%d %B, %Y")))
     time_series_dict = load_time_series()
     granularity = st.sidebar.selectbox("Granularity", ["Worldwide", "Country"])
     if granularity == "Country":
@@ -346,7 +350,7 @@ def main():
     else:
         st.title("Worldwide")
         st.write("\n")
-        st.info("Data updated as on {}".format(date.date().strftime("%d %B, %Y")))
+        # st.info("Data updated as on {}".format(date.date().strftime("%d %B, %Y")))
         graph_type = st.sidebar.selectbox("Choose visualization", ["Total Count",
                                                                    "Top affected/recovered",
                                                                    "Timeline"])
