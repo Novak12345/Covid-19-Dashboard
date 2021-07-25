@@ -3,11 +3,13 @@ from datetime import datetime, timedelta
 from src.pages.utils.load_data import load_data
 from src.pages.utils.fetch_url import fetch_url
 from PIL import Image
-
+from x import figcasesprov
+from background import set_png_as_page_bg
 
 def main():
-    img = Image.open("assets/covid-19-4960246_640.jpg")
-    st.image(img)
+    figcases = figcasesprov()
+    st.write(figcases)
+    set_png_as_page_bg("covid.png")
     st.title("Data")
     date = datetime.today()
     df = None
