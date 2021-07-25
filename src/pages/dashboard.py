@@ -285,8 +285,7 @@ def plot_province(df, country):
         df["Province_State"].fillna("Not Available", inplace=True)
         temp = df[["lat", "lon"]]
         temp.dropna(inplace=True)
-        with open("src/pages/utils/tokens/.mapbox_token") as tfile:
-            token = tfile.read()
+        token =st.secrets["mapbox_token"]
         fig = px.scatter_mapbox(df, lat="lat", lon="lon", zoom=3, height=600, width=800,
                                 size="Scaled Confirmed",
                                 color="Incident_Rate",
