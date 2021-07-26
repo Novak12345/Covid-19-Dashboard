@@ -1,4 +1,5 @@
 import streamlit as st
+import dashes2
 from dashes2.home.home import main as hm
 from dashes2.data.data import main as dt
 from dashes2.dashboard.dashboard import main as dash
