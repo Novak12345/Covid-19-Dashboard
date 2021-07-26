@@ -254,7 +254,7 @@ def dashboard():
         """
         response_dict = {}
         PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../../../'))
-        local_css("/style.css")
+        local_css("style.css")
         curr = 0
         prev = 0
         for key in keys:
@@ -339,7 +339,7 @@ def dashboard():
         time_series_dict = load_time_series()
         granularity = st.sidebar.selectbox("Granularity", ["Worldwide", "Country"])
         if granularity == "Country":
-            country = st.sidebar.selectbox("country", df["Country_Region"].unique())
+            country = st.sidebar.selectbox("Country", df["Country_Region"].unique())
             st.title(country)
             graph_type = st.selectbox("Choose visualization", ["Total Count",
                                                                "Timeline",
