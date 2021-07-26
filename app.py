@@ -17,12 +17,12 @@ st.markdown(
     unsafe_allow_html=True,
 )
 query_params = st.experimental_get_query_params()
-tabs = {
-    "Home": src.pages.home,
-    "Data": src.pages.data,
-    "Dashboard": src.pages.dashboard,
-    "About": src.pages.about
-}
+tabs = [
+    "Home",
+    "Data",
+    "Dashboard",
+    "About"
+]
 if "tab" in query_params:
     active_tab = query_params["tab"][0]
 else:
@@ -52,7 +52,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 if active_tab == "Home":
     hm()
 elif active_tab == "About":
-   abt.main()
+   abt()
 elif active_tab == "Data":
     dt()
 elif active_tab == "Dashboard":
