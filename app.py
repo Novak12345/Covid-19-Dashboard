@@ -1,8 +1,8 @@
 import streamlit as st
-import src.pages.home
-import src.pages.data
-import src.pages.dashboard
-import src.pages.about
+from dashes.home import main as hm
+from dashes.data import main as dt
+from dashes.dashboard import main as dash
+from dashes.about import main as abt
 from background import set_png_as_page_bg
 st.set_page_config(
         page_title="Covid-19 Dashboard",
@@ -49,12 +49,12 @@ st.markdown(tabs_html, unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 
 if active_tab == "Home":
-    src.pages.home.main()
+    hm()
 elif active_tab == "About":
-    src.pages.about.main()
+   abt.main()
 elif active_tab == "Data":
-    src.pages.data.main()
+    dt()
 elif active_tab == "Dashboard":
-    src.pages.dashboard.main()
+    dash()
 else:
     st.error("Something has gone terribly wrong.")
