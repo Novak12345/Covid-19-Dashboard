@@ -1,8 +1,8 @@
 import streamlit as st
-from dashes.home import main as hm
-from dashes.data import main as dt
-from dashes.dashboard import main as dash
-from dashes.about import main as abt
+from dashes2.home import main as hm
+from dashes2.data import main as dt
+from dashes2.dashboard import main as dash
+from dashes2.about import main as abt
 from background import set_png_as_page_bg
 st.set_page_config(
         page_title="Covid-19 Dashboard",
