@@ -263,7 +263,7 @@ def load_day_change(time_series_dict, keys, granularity, country=None):
     st.markdown(t, unsafe_allow_html=True)
 
 
-@st.cache(suppress_st_warning=True)
+# @st.cache(suppress_st_warning=True)
 def plot_province(df, country):
     """
     Function plots the map of a country with the state/county level information as a hover.
