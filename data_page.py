@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import webbrowser
 import src.pages.home
 import src.pages.data
 import src.pages.dashboard
@@ -51,12 +52,12 @@ st.markdown(tabs_html, unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 
 if active_tab == "Home":
-    src.pages.home.main()
+    webbrowser.open("https://share.streamlit.io/novak12345/covid-19-dashboard/main/app.py")
 elif active_tab == "Conclusions":
-    src.pages.conclusions.main()
+    webbrowser.open("https://share.streamlit.io/novak12345/covid-19-dashboard/main/conclusions_page.py")
 elif active_tab == "Data":
     src.pages.data.main()
 elif active_tab == "Dashboard":
-    src.pages.dashboard.main()
+    webbrowser.open("https://share.streamlit.io/novak12345/covid-19-dashboard/main/dashboard_page.py")
 else:
     st.error("Something has gone terribly wrong.")
