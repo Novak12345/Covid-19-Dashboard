@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-def local_css(file_name):
+def local_css():
     """
     Function loads the css stylesheet
     :param file_name: str
