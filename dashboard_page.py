@@ -27,10 +27,10 @@ tabs = [
 if "tab" in query_params:
     active_tab = query_params["tab"][0]
 else:
-    active_tab = "Home"
+    active_tab = "Dashboard"
 
 if active_tab not in tabs:
-    st.experimental_set_query_params(tab="Home")
+    st.experimental_set_query_params(tab="Dashboard")
     active_tab = "Dashboard"
 
 li_items = "".join(
