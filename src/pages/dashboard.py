@@ -230,7 +230,7 @@ def load_day_change(time_series_dict, keys, granularity, country=None):
     """
     response_dict = {}
     PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../../'))
-    local_css("C:/Users/susheel/schoolcovidchatrobo/style.css")
+    local_css()
     curr = 0
     prev = 0
     for key in keys:
