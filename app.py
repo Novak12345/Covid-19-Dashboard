@@ -4,6 +4,7 @@ import src.pages.home
 import src.pages.data
 import src.pages.dashboard
 import src.pages.conclusions
+import webbrowser
 from background import set_png_as_page_bg
 st.set_page_config(
         page_title="Covid-19 Dashboard",
@@ -53,10 +54,10 @@ st.markdown("<br>", unsafe_allow_html=True)
 if active_tab == "Home":
     src.pages.home.main()
 elif active_tab == "Conclusions":
-    src.pages.conclusions.main()
+    webbrowser.open("https://share.streamlit.io/novak12345/covid-19-dashboard/main/conclusions_page.py")
 elif active_tab == "Data":
     src.pages.data.main()
 elif active_tab == "Dashboard":
-    src.pages.dashboard.main()
+    webbrowser.open("https://share.streamlit.io/novak12345/covid-19-dashboard/main/dashboard_page.py")
 else:
     st.error("Something has gone terribly wrong.")
