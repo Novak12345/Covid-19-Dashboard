@@ -48,5 +48,4 @@ span.highlight.orange{
     display: inline-block;
 }
     """
-    with open(file_name) as f:
-        st.markdown("<style>{}</style>".format(stylesheet), unsafe_allow_html=True)
+    st.markdown("<style>{}</style>".format(stylesheet), unsafe_allow_html=True)
