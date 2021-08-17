@@ -1,7 +1,7 @@
 import streamlit as st
 from datetime import datetime, timedelta
-from src.pages.utils.load_data import load_data
-from src.pages.utils.fetch_url import fetch_url
+from utils.load_data import load_data
+from utils.fetch_url import fetch_url
 # from PIL import Image
 # from x import figcasesprov
 def main():
