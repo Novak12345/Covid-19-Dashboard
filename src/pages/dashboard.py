@@ -6,21 +6,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import plotly.io as pio
 from datetime import datetime, timedelta
-# from src.pages.utils.fetch_url import fetch_url
-def fetch_url(date, country=None):
-    """
-    Function fetches the url of the most recent report.
-    :param date: datetime object
-    :param country: str
-    :return: str
-    """
-    DATA_URL = ("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/"
-                "csse_covid_19_daily_reports/{}.csv".format(date.date().strftime("%m-%d-%Y")))
-    if country == "US":
-        DATA_URL = ("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/"
-                    "csse_covid_19_daily_reports_us/{}.csv".format(date.date().strftime("%m-%d-%Y")))
-
-    return DATA_URL
+from src.pages.utils.fetch_url import fetch_url
 from src.pages.utils.load_data import load_data
 from src.pages.utils.load_css import local_css
 from src.pages.utils.load_time_series import load_time_series
