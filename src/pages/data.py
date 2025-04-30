@@ -1,21 +1,7 @@
 import streamlit as st
 from datetime import datetime, timedelta
 from src.pages.utils.load_data import load_data
-# from src.pages.utils.fetch_url import fetch_url
-def fetch_url(date, country=None):
-    """
-    Function fetches the url of the most recent report.
-    :param date: datetime object
-    :param country: str
-    :return: str
-    """
-    DATA_URL = ("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/"
-                "csse_covid_19_daily_reports/{}.csv".format(date.date().strftime("%m-%d-%Y")))
-    if country == "US":
-        DATA_URL = ("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/"
-                    "csse_covid_19_daily_reports_us/{}.csv".format(date.date().strftime("%m-%d-%Y")))
-
-    return DATA_URL
+from src.pages.utils.fetch_url import fetch_url
 from PIL import Image
 from x import figcasesprov
 from background import set_png_as_page_bg
